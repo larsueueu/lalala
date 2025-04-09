@@ -1,0 +1,120 @@
+body {
+    height: 100%;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d3c6a3;
+    padding: 10px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+main {
+    display: flex;
+    padding: 20px;
+}
+
+.sidebar {
+    flex: 1;
+    background-color: #e7e3d9;
+    padding: 15px;
+    margin-right: 20px;
+    border-radius: 8px;
+    height: 700px;
+}
+
+.content {
+    flex: 3;
+    padding: 15px;
+    background-color: #f5f2ed;
+    border-radius: 8px;
+}
+
+.room-container {
+    max-height: 400px; 
+    overflow-y: auto; 
+    border: 1px solid #ccc; 
+    padding: 10px; 
+}
+
+.room {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+    background-color: #f5f2ed;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.room img {
+    margin-right: 10px;
+    border-radius: 5px;
+    height: 250px;
+    width: 300px;
+}
+
+.room-info {
+    background-color: #d3c6a3;
+    padding: 10px;
+    border-radius: 5px;
+    width: 500px; 
+    display: flex;
+    flex-direction: column; 
+    margin: 10px;         
+    line-height: normal;
+    text-align: justify;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+#sortButton {
+    margin-bottom: 10px;
+    padding: 10px 20px; 
+    background-color: gray; 
+    color: white; 
+    border: none; 
+    border-radius: 25px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: background-color 0.3s; 
+}
+
+#sortButton:hover {
+    background-color: darkgray; 
+}
+
+#sortOptions {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kein Hotel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="keiinn.jpg" alt="Kein Hotel Logo">
+            <h1>Kein Hotel</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="contact.html">CONTACT US</a></li>
+                <li><a href="rooms.html">ROOMS</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <aside class="sidebar">
+            <h3>Rooms Image</h3>
+        </aside>
+        <section class="content">
+            <button id="sortButton">Sort by</button>
+            <select id="sortOptions" style="display: none;">
+                <option value="lowToHigh">Price: Low to High</option>
+                <option value="highToLow">Price: High to Low</option>
+            </select>
+            <h2>Top picks</h2>
+            <div class="room-container" id="roomContainer">
+                <div class="room" data-price="2500">
+                    <img src="room1.jpg">
+                    <div class="room-info">Room Type: Standard Room
+                        <br>Capacity: 2 guests
+                        <br>Amenities:
+                        <br>Free Wi-Fi
+                        <br>Air conditioning
+                        <br>Private bathroom with toiletries
+                        <br>Flat-screen TV
+                        <br>Daily housekeeping
+                        <br>View: City View
+                        <br>Price: PHP 2,500 - PHP 3,000 per night (depending on the season)
+                    </div>
+                </div>
+                <div class="room" data-price="4500">
+                    <img src="room2.jpg">
+                    <div class="room-info">Room Type: Deluxe Room
+                        <br>Capacity: 2-3 guests
+                        <br>Amenities:
+                        <br>Free Wi-Fi
+                        <br>Air conditioning
+                        <br>Private bathroom with bathtub
+                        <br>Flat-screen TV with cable
+                        <br>Mini fridge and coffee maker
+                        <br>Daily housekeeping
+                        <br>Complimentary bottled water
+                        <br>View: City or partial river view
+                        <br>Price: PHP 4,500 - PHP 5,500 per night (depending on the season)
+                    </div>
+                </div>
+                <div class="room" data-price="3500">
+                    <img src="room3.jpg">
+                    <div class="room-info">Room Type: Superior Room
+                        <br>Capacity: 2 guests
+                        <br>Amenities:
+                        <br>Free Wi-Fi
+                        <br>Air conditioning
+                        <br>Private bathroom with shower
+                        <br>Flat-screen TV
+                        <br>Daily housekeeping
+                        <br>View: Garden View
+                        <br>Price: PHP 3,500 per night
+                    </div>
+                </div>
+                <div class="room" data-price="6000">
+                    <img src="room4.jpg">
+                    <div class="room-info">Room Type: Executive Suite
+                        <br>Capacity: 4 guests
+                        <br>Amenities:
+                        <br>Free Wi-Fi
+                        <br>Air conditioning
+                        <br>Private bathroom with bathtub
+                        <br>Flat-screen TV with cable
+                        <br>Mini fridge and coffee maker
+                        <br>Daily housekeeping
+                        <br>Complimentary bottled water
+                        <br>View: Ocean View
+                        <br>Price: PHP 6,000 per night
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const sortButton = document.getElementById('sortButton');
+        const sortOptions = document.getElementById('sortOptions');
+        const roomContainer = document.getElementById('roomContainer');
+
+        sortButton.addEventListener('click', () => {
+            sortOptions.style.display = sortOptions.style.display === 'none' ? 'block' : 'none';
+        });
+
+        sortOptions.addEventListener('change', () => {
+            const rooms = Array.from(roomContainer.getElementsByClassName('room'));
+            const sortOrder = sortOptions.value;
+
+            rooms.sort((a, b) => {
+                const priceA = parseInt(a.getAttribute('data-price'));
+                const priceB = parseInt(b.getAttribute('data-price'));
+                return sortOrder === 'lowToHigh' ? priceA - priceB : priceB - priceA;
+            });
+
+            roomContainer.innerHTML = '';
+            rooms.forEach(room => roomContainer.appendChild(room));
+        });
+    </script>
+</body>
+</html>
